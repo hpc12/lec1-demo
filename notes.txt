@@ -35,6 +35,11 @@ colorscheme evening
 - Run, not parallel.
 - -fopenmp
 - Do vanilla vector add.
+- Program is incorrect!
+- default(none)
 - OMP_NUM_THREADS=1...4
-- Depressing! What's wrong?
-- Wha
+- What's wrong?
+- CLOCK_REALTIME (!)
+- Still not awesome
+- Add more per-thread work
+- Better

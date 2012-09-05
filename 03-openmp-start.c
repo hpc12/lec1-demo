@@ -1,9 +1,6 @@
 #include "timing.h"
 #include <stdio.h>
 #include <stdlib.h>
-// FIXME STRIP
-#include <omp.h>
-#include <math.h>
 
 int main(int argc, char **argv)
 {
@@ -30,40 +27,26 @@ int main(int argc, char **argv)
   const int ntrips = atoi(argv[2]);
   printf("doing %d trips...\n", ntrips);
 
-#pragma omp parallel
-  {
-    printf("Hi, I'm thread # %d of %d\n",
-        omp_get_thread_num(),
-        omp_get_num_threads());
-  }
-
   struct timespec time1, time2;
-  clock_gettime(CLOCK_REALTIME, &time1);
+  clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1);
+
+  double a;
+  double b;
 
   for (int trip = 0; trip < ntrips; ++trip)
   {
-    #pragma omp parallel for default(none)
     for (int i = 0; i < n; ++i)
     {
-      double a = x[i];
-      double b = y[i];
+      a = x[i];
+      b = y[i];
 
-      /*
-      for (int j = 0; j < 20; ++j)
-      {
-        a = sin(a) + b;
-        b = cos(b) + a;
-      }
-      */
-
-      z[i] = a+b;
+      z[i] = a + b;
     }
   }
 
-  clock_gettime(CLOCK_REALTIME, &time2);
+  clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
   double elapsed = timespec_diff_in_seconds(time1,time2)/ntrips;
   printf("%f s\n", elapsed);
   printf("%f GB/s\n",
       3*n*sizeof(double)/1e9/elapsed);
 }
-
