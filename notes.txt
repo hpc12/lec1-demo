@@ -1,0 +1,8 @@
+000-timing-example.c:
+- basic timing
+- run into all errors
+- -O3
+- enable result printing
+- time again
+
+001-simple.c:
