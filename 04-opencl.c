@@ -24,7 +24,7 @@ int main(int argc, char **argv)
   // --------------------------------------------------------------------------
   // load kernels 
   // --------------------------------------------------------------------------
-  char *knl_text = read_file("vec-add-demo.cl");
+  char *knl_text = read_file("vec-add.cl");
   cl_kernel knl = kernel_from_string(ctx, knl_text, "sum", NULL);
   free(knl_text);
 
@@ -100,6 +100,7 @@ int main(int argc, char **argv)
   // --------------------------------------------------------------------------
   // clean up
   // --------------------------------------------------------------------------
+  CALL_CL_GUARDED(clFinish, (queue));
   CALL_CL_GUARDED(clReleaseMemObject, (buf_a));
   CALL_CL_GUARDED(clReleaseMemObject, (buf_b));
   CALL_CL_GUARDED(clReleaseMemObject, (buf_c));
