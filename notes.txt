@@ -45,8 +45,11 @@ colorscheme evening
 - Better
 
 04-opencl:
+- run starter (on "Advanced")
 - do timings
 - put in clFinish
+- do timings again
+- switch to "NVIDIA"
 - add transfer back & check
 - use global size
 - use work group size
