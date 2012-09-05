@@ -1,8 +1,23 @@
-000-timing-example.c:
+colorscheme evening
+
+00-timing-example.c:
 - basic timing
 - run into all errors
 - -O3
 - enable result printing
 - time again
 
-001-simple.c:
+01-simple.c:
+- simple timing
+- run into segfault
+  - debug it
+- what do the numbers mean?
+- timing repeatability
+- O3
+- set-governor performance/ondemand
+- run through a few decades
+  - why is it doing what it's doing?!
+  - Control flow overhead
+  - Cache
+
+02-flexible.c:

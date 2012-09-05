@@ -1,0 +1,5 @@
+#! /bin/sh
+
+for i in 0 1 2 3; do
+  cpufreq-set -g $1 -c 1
+done
