@@ -1,13 +1,13 @@
 colorscheme evening
 
-00-timing-example.c:
+00-timing-example:
 - basic timing
 - run into all errors
 - -O3
 - enable result printing
 - time again
 
-01-simple.c:
+01-simple:
 - simple timing
 - run into segfault
   - debug it
@@ -29,7 +29,7 @@ colorscheme evening
 - Destroy it
 */
 
-03-openmp.c:
+03-openmp:
 - Add thread number printer
 - -lgomp
 - Run, not parallel.
@@ -43,3 +43,12 @@ colorscheme evening
 - Still not awesome
 - Add more per-thread work
 - Better
+
+04-opencl:
+- do timings
+- put in clFinish
+- add transfer back & check
+- use global size
+- use work group size
+- show 'invalid wg size'
+- show rounding and check
