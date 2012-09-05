@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+extern void add_doubles(void *tgt, void *op1, void *op2);
+
+typedef void (*operation_t)(void *, void *, void *);
+
+// FIXME
+
 int main(int argc, char **argv)
 {
   if (argc != 3)
@@ -32,10 +38,7 @@ int main(int argc, char **argv)
 
   for (int trip = 0; trip < ntrips; ++trip)
   {
-    for (int i = 0; i < n; ++i)
-    {
-      z[i] = x[i] + y[i];
-    }
+    // FIXME
   }
 
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);

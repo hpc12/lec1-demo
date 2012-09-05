@@ -12,6 +12,8 @@ colorscheme evening
 - run into segfault
   - debug it
 - what do the numbers mean?
+  - what are the main things that are involved?
+  - what is limiting our rate?
 - timing repeatability
 - O3
 - set-governor performance/ondemand
@@ -20,4 +22,19 @@ colorscheme evening
   - Control flow overhead
   - Cache
 
-02-flexible.c:
+/*
+02-flexible.c: (if time)
+- Argue for flexibility
+- Code it
+- Destroy it
+*/
+
+03-openmp.c:
+- Add thread number printer
+- -lgomp
+- Run, not parallel.
+- -fopenmp
+- Do vanilla vector add.
+- OMP_NUM_THREADS=1...4
+- Depressing! What's wrong?
+- Wha

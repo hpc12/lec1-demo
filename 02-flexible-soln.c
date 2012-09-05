@@ -2,11 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+extern void add_doubles(void *tgt, void *op1, void *op2);
+
+typedef void (*operation_t)(void *, void *, void *);
+
+void do_three_operand_loop(operation_t op, void *x, void *y, void *z,
+    long item_size, long n)
+{
+  for (int i = 0; i < n; ++i)
+  {
+    op(z+i*item_size, x+i*item_size, y+i*item_size);
+  }
+}
+
 int main(int argc, char **argv)
 {
-  if (argc != 2)
+  if (argc != 3)
   {
-    // STRIP
     fprintf(stderr, "need two arguments!\n");
     abort();
   }
@@ -25,16 +37,15 @@ int main(int argc, char **argv)
     y[i] = 2*i;
   }
 
+  const int ntrips = atoi(argv[2]);
+  printf("doing %d trips...\n", ntrips);
+
   struct timespec time1, time2;
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1);
 
-  const int ntrips = 2;
   for (int trip = 0; trip < ntrips; ++trip)
   {
-    for (int i = 0; i < n; ++i)
-    {
-      z[i] = x[i] + y[i];
-    }
+    do_three_operand_loop(add_doubles, x, y, z, sizeof(double), n);
   }
 
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
