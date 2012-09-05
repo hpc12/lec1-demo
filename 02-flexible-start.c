@@ -47,4 +47,6 @@ int main(int argc, char **argv)
       3*n*sizeof(double)/1e9/elapsed);
   printf("%f GFlops/s\n",
       n/1e9/elapsed);
+
+  return 0;
 }

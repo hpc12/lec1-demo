@@ -55,3 +55,5 @@ colorscheme evening
 - use work group size
 - show 'invalid wg size'
 - show rounding and check
+
+05-mpi:

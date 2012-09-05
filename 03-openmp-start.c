@@ -49,4 +49,6 @@ int main(int argc, char **argv)
   printf("%f s\n", elapsed);
   printf("%f GB/s\n",
       3*n*sizeof(double)/1e9/elapsed);
+
+  return 0;
 }

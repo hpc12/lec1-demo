@@ -29,5 +29,6 @@ int main(int argc, char **argv)
   printf("%f seconds for %d entries\n",
       timespec_diff_in_seconds(time1,time2),
       n);
-}
 
+  return 0;
+}
