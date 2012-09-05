@@ -9,14 +9,15 @@ colorscheme evening
 
 01-simple:
 - simple timing
-- run into segfault
+- run into too-big segfault
   - debug it
+  - add the check
 - what do the numbers mean?
   - what are the main things that are involved?
   - what is limiting our rate?
-- timing repeatability
-- O3
+- timing repeatability "10000 50"
 - set-governor performance/ondemand
+- O3
 - run through a few decades
   - why is it doing what it's doing?!
   - Control flow overhead
@@ -57,3 +58,6 @@ colorscheme evening
 - show rounding and check
 
 05-mpi:
+- add stuff
+- run a few measurements
+
