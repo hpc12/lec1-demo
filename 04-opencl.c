@@ -77,8 +77,8 @@ int main(int argc, char **argv)
   // run code on device
   // --------------------------------------------------------------------------
 
-  struct timespec time1, time2;
-  clock_gettime(CLOCK_REALTIME, &time1);
+  timestamp_type time1, time2;
+  get_timestamp(&time1);
 
   for (int trip = 0; trip < ntrips; ++trip)
   {
@@ -91,8 +91,8 @@ int main(int argc, char **argv)
          0, NULL, NULL));
   }
 
-  clock_gettime(CLOCK_REALTIME, &time2);
-  double elapsed = timespec_diff_in_seconds(time1,time2)/ntrips;
+  get_timestamp(&time2);
+  double elapsed = timestamp_diff_in_seconds(time1,time2)/ntrips;
   printf("%f s\n", elapsed);
   printf("%f GB/s\n",
       3*n*sizeof(double)/1e9/elapsed);

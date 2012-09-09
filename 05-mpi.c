@@ -41,13 +41,13 @@ int main(int argc, char **argv)
       y[i] = 2*i;
     }
 
-    struct timespec time1, time2;
-    clock_gettime(CLOCK_REALTIME, &time1);
+    timestamp_type time1, time2;
+    get_timestamp(&time1);
 
     // FIXME send / receive
 
-    clock_gettime(CLOCK_REALTIME, &time2);
-    double elapsed = timespec_diff_in_seconds(time1,time2)/ntrips;
+    get_timestamp(&time2);
+    double elapsed = timestamp_diff_in_seconds(time1,time2)/ntrips;
     printf("%f GB/s\n",
         3*n*sizeof(double)/1e9/elapsed);
     printf("%f GFlops/s\n",

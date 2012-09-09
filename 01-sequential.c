@@ -20,14 +20,14 @@ int main(int argc, char **argv)
     y[i] = 2*i;
   }
 
-  struct timespec time1, time2;
-  clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1);
+  timestamp_type time1, time2;
+  get_timestamp(&time1);
 
   // FIXME
 
-  clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+  get_timestamp(&time2);
   printf("%f seconds for %d entries\n",
-      timespec_diff_in_seconds(time1,time2),
+      timestamp_diff_in_seconds(time1, time2),
       n);
 
   return 0;
