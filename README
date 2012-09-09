@@ -1,0 +1,17 @@
+ * These examples are written in C99. You will need the compiler flag
+ * -std=c99 to compile it.
+ *
+ * To make the timestamp functions and their datatypes available, you need to
+pass * -D_XOPEN_SOURCE=500 to the compiler.
+ *
+ * If you get this error:
+ * timing-example.c:(.text+0xd9): undefined reference to `clock_gettime'
+ * timing-example.c:(.text+0x108): undefined reference to `clock_gettime'
+ * then you'll need to the -lrt flag, too.
+ *
+ * Summary: Assuming you've saved this file as 'timing-example.c',
+ * use this to compile:
+ *
+ * gcc -std=c99 -D_XOPEN_SOURCE=500 -lrt timing-example.c
+ *
+ * Andreas Kloeckner, 9/3/2012
